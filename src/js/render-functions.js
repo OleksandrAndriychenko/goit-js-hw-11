@@ -50,9 +50,7 @@ function updateLightbox() {
 }
 
 export function clearGallery() {
-    if (gallery) {
         gallery.innerHTML = '';
-    }
 }
 
 export function renderGallery(images) {
@@ -61,7 +59,7 @@ export function renderGallery(images) {
 };
 
 export function showLoader() {
-    const loader = document.querySelector('.load');
+    const loader = document.querySelector('span');
     loader.classList.add('loader');
 };
 
