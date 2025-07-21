@@ -59,11 +59,11 @@ export function renderGallery(images) {
 };
 
 export function showLoader() {
-    const loader = document.querySelector('span');
+    const loader = document.querySelector('.hidden');
     loader.classList.add('loader');
 };
 
 export function hideLoader() {
-    const loader = document.querySelector('.loader');
+    const loader = document.querySelector('.hidden');
     loader.classList.remove('loader');
 };

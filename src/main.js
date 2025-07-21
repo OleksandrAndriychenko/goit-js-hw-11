@@ -11,7 +11,18 @@ function handleSubmit(event) {
     clearGallery();
     showLoader();
     const inputImg = event.target.elements["search-text"].value;
-    getImagesByQuery(inputImg)
+    if (!inputImg) {
+        iziToast.error({
+            title: 'Error',
+            message: 'Sorry, there are no images matching your search query. Please try again!',
+            position: 'topRight',
+            backgroundColor: "#ef4040",
+            titleColor: "#fff",
+            messageColor: "#fff",
+        });
+        hideLoader();
+        return;
+    } else{getImagesByQuery(inputImg)
         .then(data => {
             if (data.length <= 0) {
                 hideLoader();
@@ -30,7 +41,14 @@ function handleSubmit(event) {
         })
         .catch(error => {
             hideLoader();
-            list.innerHTML = `<h3>${error.message}</h3>`
-        })
+            iziToast.error({
+                    title: 'Error',
+                    message: 'Sorry, there are no images matching your search query. Please try again!',
+                    position: 'topRight',
+                    backgroundColor: "#ef4040",
+                    titleColor: "#fff",
+                    messageColor: "#fff",
+                });
+        })}
 }
 
